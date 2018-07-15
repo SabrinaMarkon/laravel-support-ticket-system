@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests\TicketFormRequest;
 
+use App\Ticket;
+
 class TicketsController extends Controller
 {
     /**
@@ -36,7 +38,17 @@ class TicketsController extends Controller
      */
     public function store(TicketFormRequest $request)
     {
-        return $request->all();
+        // return $request->all();
+        /* We use the uniqid() function to generate a unique ID based on the microtime. You may use md5() function to generate the slugs or create your custom slugs. */
+        $slug = uniqid();
+        $ticket = new Ticket(array(
+            'title' => $request->get('title'),
+            'content' => $request->get('content'),
+            'slug' => $slug
+        ));
+        // save the data to our database.
+        $ticket->save();
+        return redirect('/contact')->with('status', 'Your ticket has been created! Its unique id is: ' . $slug);
     }
 
     /**
