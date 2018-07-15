@@ -6,6 +6,9 @@
         <div class="well well bs-component">
             <form class="form-horizontal" method="post">
             <input type="hidden" name="_token" value="{!! csrf_token() !!}">
+            @foreach ($errors->all() as $error)
+                <p class="alert alert-danger">{{ $error }}</p>
+            @endforeach
                 <fieldset>
                     <legend>Submit a new ticket</legend>
                     <div class="form-group">
