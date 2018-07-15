@@ -29,3 +29,5 @@ Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'TicketsController@create');
 
 Route::post('/contact', 'TicketsController@store');
+
+Route::get('/tickets', 'TicketsController@index');

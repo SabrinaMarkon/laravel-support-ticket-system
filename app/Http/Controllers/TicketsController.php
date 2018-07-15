@@ -17,7 +17,13 @@ class TicketsController extends Controller
      */
     public function index()
     {
-        //
+        $tickets = Ticket::all();
+        /* compact() method converts the result to an array, and passes it to the view. */
+        return view('tickets.index', compact('tickets'));
+        // OR:
+        //return view('tickets.index')->with('tickets', $tickets);
+        // OR:
+        // return view('tickets.index', ['tickets'=> $tickets]);
     }
 
     /**
