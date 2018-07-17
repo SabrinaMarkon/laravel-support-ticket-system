@@ -54,7 +54,7 @@ class TicketsController extends Controller
         ));
         // save the data to our database.
         $ticket->save();
-        return redirect('/contact')->with('status', 'Your ticket has been created! Its unique id is: ' . $slug);
+        return redirect('/tickets')->with('status', 'Your ticket has been created! Its unique id is: ' . $slug);
     }
 
     /**
@@ -100,7 +100,7 @@ class TicketsController extends Controller
             $ticket->status = 1;
         }
         $ticket->save();
-        return redirect(action('TicketsController@edit', $ticket->slug))->with('status', 'The ticket ' . $slug . ' has been updated!');
+        return redirect(action('TicketsController@index', $ticket->slug))->with('status', 'The ticket ' . $slug . ' has been updated!');
     }
 
     /**

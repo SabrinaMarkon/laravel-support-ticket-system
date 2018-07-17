@@ -40,3 +40,7 @@ Route::get('/ticket/{slug?}/edit', 'TicketsController@edit');
 Route::post('/ticket/{slug?}/edit', 'TicketsController@update');
 
 Route::post('/ticket/{slug?}/delete', 'TicketsController@destroy');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
