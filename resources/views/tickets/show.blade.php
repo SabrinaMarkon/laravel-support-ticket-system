@@ -9,8 +9,18 @@
                     <p> <strong>Status</strong>: {!! $ticket->status ? 'Pending' : 'Answered' !!}</p>
                     <p> {!! $ticket->content !!} </p>
                 </div>
+                <a href="{!! action('TicketsController@index') !!}" type="button" class="btn btn-raised btn-warning">Cancel</a>
                 <a href="{!! action('TicketsController@edit', $ticket->slug) !!}" class="btn btn-raised btn-info">Edit</a>
-                <a href="#" class="btn btn-raised btn-danger">Delete</a>
+
+                <form method="post" action="{!! action('TicketsController@destroy', $ticket->slug) !!}" class="pull-right">
+                    <input type="hidden" name="_token" value="{!! csrf_token() !!}"
+                    <div>
+                        <button type="submit" class="btn btn-raised btn-danger">Delete</button>
+                    </div>
+                </form>
+
+                <div class="clearfix"></div>
+
             </div>
     </div>
 

@@ -38,7 +38,7 @@
 
                     <div class="form-group">
                         <div class="col-lg-10 col-lg-offset-2">
-                            <button type="button" class="btn btn-raised btn-warning">Cancel</button>
+                            <a href="{!! action('PagesController@home') !!}" type="button" class="btn btn-raised btn-warning">Cancel</a>
                             <button type="submit" class="btn btn-raised btn-info">Submit</button>
                         </div>
                     </div>
