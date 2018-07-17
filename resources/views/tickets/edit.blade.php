@@ -35,7 +35,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group text-center">
                         <label>
                             <input type="checkbox" name="status" {!! $ticket->status?"":"checked"!!} > Close this ticket?
                         </label>
