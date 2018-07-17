@@ -34,3 +34,5 @@ Route::get('/tickets', 'TicketsController@index');
 
 // any route parameter named slug will be bound to the show action of our TicketsController
 Route::get('/ticket/{slug?}', 'TicketsController@show');
+
+Route::get('/ticket/{slug?}/edit', 'TicketsController@edit');

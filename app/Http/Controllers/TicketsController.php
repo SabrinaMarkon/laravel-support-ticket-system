@@ -73,12 +73,13 @@ class TicketsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $slug
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($slug)
     {
-        //
+        $ticket = Ticket::whereSlug($slug)->firstOrFail();
+        return view('tickets.edit', compact('ticket'));
     }
 
     /**
