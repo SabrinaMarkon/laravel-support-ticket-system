@@ -60,12 +60,14 @@ class TicketsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int  $slug
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        // The firstOrFail method will retrieve the first result of the query. If there is no result, it will throw a ModelNotFoundException (looks nice still). If you don't want to throw an exception, you can use the first() method.
+        $ticket = Ticket::whereSlug($slug)->firstOrFail();
+        return view('tickets.show', compact('ticket'));
     }
 
     /**

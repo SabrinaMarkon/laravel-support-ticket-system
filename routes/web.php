@@ -31,3 +31,6 @@ Route::get('/contact', 'TicketsController@create');
 Route::post('/contact', 'TicketsController@store');
 
 Route::get('/tickets', 'TicketsController@index');
+
+// any route parameter named slug will be bound to the show action of our TicketsController
+Route::get('/ticket/{slug?}', 'TicketsController@show');
