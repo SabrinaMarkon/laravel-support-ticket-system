@@ -79,7 +79,11 @@ class TicketsController extends Controller
     {
         // The firstOrFail method will retrieve the first result of the query. If there is no result, it will throw a ModelNotFoundException (looks nice still). If you don't want to throw an exception, you can use the first() method.
         $ticket = Ticket::whereSlug($slug)->firstOrFail();
-        return view('tickets.show', compact('ticket'));
+
+        /* get all the comments for this ticket. comments() method is in the Ticket model to
+        indicate that Tickets hasMany comments */
+        $comments = $ticket->comments()->get();
+        return view('tickets.show', compact('ticket', 'comments'));
     }
 
     /**

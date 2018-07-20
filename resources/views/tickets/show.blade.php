@@ -21,6 +21,14 @@
 
                 <div class="clearfix"></div>
 
+                <!-- display all comments for this ticket -->
+                @foreach($comments as $comment)
+                    <div class="well well bs-component">
+                        <div class="content">
+                            {!! $comment->content !!}
+                        </div>
+                    </div>
+                @endforeach
 
                 <!-- This form is very similar to the create ticket form, we just need to add a new hidden input to submit the ticket id (post_id) as well. -->
                 <div class="well well bs-component">
@@ -48,7 +56,7 @@
                             </div>
 
                             <div class="form-group">
-                                <div class="col-lg-10 col-lg-offset-2">
+                                <div class="col-lg-12">
                                     <button type="reset" class="btn btn-raised btn-warning">Cancel</button>
                                     <button type="submit" class="btn btn-raised btn-info">Post</button>
                                 </div>
