@@ -8,6 +8,8 @@ use App\Http\Requests\TicketFormRequest;
 
 use App\Ticket;
 
+use Illuminate\Support\Facades\Mail;
+
 class TicketsController extends Controller
 {
     /**
@@ -54,6 +56,16 @@ class TicketsController extends Controller
         ));
         // save the data to our database.
         $ticket->save();
+
+        // send email to admin that a new ticket was submitted by a user.
+        $data = array(
+            'ticket' => $slug,
+        );
+        Mail::send('emails.ticket', $data, function($message) {
+            $message->from('phpsitescripts@outlook.com', 'Laravel Support Ticket System!');
+            $message->to('sabrina@phpsitescripts.com')->subject('There is a new support ticket!');
+        });
+
         return redirect('/tickets')->with('status', 'Your ticket has been created! Its unique id is: ' . $slug);
     }
 

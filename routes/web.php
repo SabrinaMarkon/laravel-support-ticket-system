@@ -47,13 +47,14 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('sendemail', function() {
 
+    // the 'name' var is provided to the emails.welcome route.
     $data = array(
-        'name' => "Learning Laravel",
+        'name' => "A Laravel Helpdesk System",
     );
 
     Mail::send('emails.welcome', $data, function($message){
-      $message->from('sabrina@phpsitescripts.com', 'Learning Laravel');
-      $message->to('phpsitescripts@outlook.com')->subject('Learning Laravel test email');
+      $message->from('phpsitescripts@outlook.com', 'Laravel Support Ticket System!');
+      $message->to('sabrina@phpsitescripts.com')->subject('Learning Laravel test email');
     });
 
     return "Your email has been sent successfully!";
