@@ -14,10 +14,18 @@ class Ticket extends Model
     */
     protected $fillable = ['title', 'content', 'slug', 'status', 'user_id'];
 
+    /* prevent id column from being mass assignable (security for id column). Everything else is fillable. */
+    protected $guarded = ['id'];
+
     public function user() {
         return $this->belongsTo('App\User');
     }
     public function getTitle() {
         return $this->title;
+    }
+
+    /* Establishes a one to many relationship with Comments (one ticket can have many comments), and Eloquent ORM can use post_id (ticket id) to find all related comments. */
+    public function comments() {
+        return $this->hasMany('App\Comment', 'post_id');
     }
 }
