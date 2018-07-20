@@ -44,3 +44,18 @@ Route::post('/ticket/{slug?}/delete', 'TicketsController@destroy');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('sendemail', function() {
+
+    $data = array(
+        'name' => "Learning Laravel",
+    );
+
+    Mail::send('emails.welcome', $data, function($message){
+      $message->from('sabrina@phpsitescripts.com', 'Learning Laravel');
+      $message->to('phpsitescripts@outlook.com')->subject('Learning Laravel test email');
+    });
+
+    return "Your email has been sent successfully!";
+
+});
