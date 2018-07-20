@@ -45,6 +45,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::post('/comment', 'CommentsController@newComment');
+
 Route::get('sendemail', function() {
 
     // the 'name' var is provided to the emails.welcome route.
