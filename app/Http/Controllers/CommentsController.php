@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
+/* php artisan make:request CommentFormRequest */
 use App\Http\Requests\CommentFormRequest;
 use App\Comment;
 
