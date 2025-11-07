@@ -1,2 +1,2 @@
 # laravel-support-ticket-system
-Laravel 5.6 basic support ticket app
+Laravel basic support ticket app
